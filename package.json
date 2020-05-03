@@ -1,0 +1,21 @@
+{
+  "name": "project-tracker-backend",
+  "version": "1.0.0",
+  "description": "server-side",
+  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "cors": "^2.8.5",
+    "mongoose": "^5.9.11",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix /client && npm run build --prefix /client"
+  },
+  "author": "",
+  "license": "ISC"
+}
