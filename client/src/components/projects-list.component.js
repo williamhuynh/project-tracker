@@ -43,9 +43,9 @@ export default class ProjectsList extends Component {
     }
 
     projectList(){
-        return this.state.projects.map(currentproject => {
-            return <Project project={currentproject} deleteProject={this.deleteProject} key={currentproject.id}/>
-        })
+        return this.state.projects.map(currentproject => (
+             <Project project={currentproject} deleteProject={this.deleteProject} key={currentproject.id}/>
+        ))
     }
 
     render () {
