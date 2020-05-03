@@ -34,6 +34,7 @@ export default class EditProject extends Component {
 
         axios.get('/users')
             .then(response => {
+                console.log(response);
                 if (response.data.length > 0) {
                     this.setState({
                         users: response.data.map(user => user.username),
