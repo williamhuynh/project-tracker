@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 
+import ProjectProgress from "./project-progress.component";
+
 
 const Project = props => (
     <tr>
@@ -52,8 +54,11 @@ export default class ProjectsList extends Component {
 
         return (
             <div>
-                <h3>All Projects</h3>
-                <table className="table">
+                <span className="project-title">Project Home</span>
+                
+                <ProjectProgress />
+                
+                {/* <table className="table">
                     <thead className="thead-light">
                         <tr>
                             <th>Project Name</th>
@@ -65,7 +70,7 @@ export default class ProjectsList extends Component {
                     <tbody>
                         { this.projectList() }
                     </tbody>
-                </table>
+                </table> */}
             </div>
         )
 

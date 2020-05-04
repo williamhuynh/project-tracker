@@ -65,7 +65,7 @@
 }
 
 .icon-button svg {
-  fill: var(--text-color);
+  color: var(--accent);
   width: 2rem;
   height: 2rem;
 }
@@ -128,6 +128,8 @@
 body {
   margin: 0;
   padding: 0;
+  background: var(--bg);
+  color: var(--text-color);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -135,11 +137,61 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h3 {
+.project-title {
   margin: 0;
+  font-size: 2em;
+  font-style: normal;
+  font-weight: bold;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.progress-container {
+  display: flex;
+  align-items: center;
+}
+
+.progress-icon {
+  transform: translateX(-45%);
+}
+
+.progress-icon svg {
+  color: #F2C94C;
+  width: 4rem;
+  height: 4rem;
+}
+
+.progress-gauge {
+  background: #C8FFFC;
+  width: 48rem;
+  height: 1.5rem;
+  border-radius: 16rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem 0 1rem;
+}
+
+.progress-bar {
+  width: 11.5rem;
+  height: 1rem;
+  border:none;
+  padding: 0;
+  margin: 0;
+  outline:none;
+  transition: background var(--speed);
+}
+
+.complete {
+  background: #0D678D;
+}
+
+.incomplete {
+  background: #68C1E7;
+}
+
+
