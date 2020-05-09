@@ -28,9 +28,7 @@ export default function  ProjectProgress() {
                 </div>
                 <span className="progress-icon"><StarIcon /></span>
             </div>
-            <div>
-                <button className="updatebtn" onClick="">Update</button>
-            </div>
+
         </div>
     );
 }

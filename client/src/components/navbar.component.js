@@ -44,6 +44,7 @@ function DropDownMenu() {
 }
 
 function ProjectList(props){
+    
     return (
         <li className="nav-item">
             <a href={props.id} className="icon-button">
@@ -59,7 +60,7 @@ export default class Navbar extends Component {
         super(props);
 
         this.state = {projects: []};
-    }
+    };
 
     componentDidMount() {
         axios.get('/projects/')
@@ -71,34 +72,23 @@ export default class Navbar extends Component {
 
     ProjectItem(){
         return this.state.projects.map(p => (
-            <ProjectList id={p._id} icon={p.name} />
+            <ProjectList key={p.id} id={p._id} icon={p.name} />
         ))
     
     }
     
 
     render() {
+
         return (
             <nav className="navbar">
                 <ul className="navbar-nav">
                     <NavItem link="/" icon={<HomeIcon />}></NavItem>
                     { this.ProjectItem() }   
-                    {/* <li className="nav-item active">
-                        <Link to="/" className="nav-link">Projects</Link>
-                    </li> */}
                     <NavItem link="create" icon={<PlusIcon />}></NavItem>
-                    {/* <NavItem link="user" icon="New User"></NavItem> */}
                     <NavItem link="#" icon={<UserIcon />}>
                         <DropDownMenu />
                     </NavItem>
-
-                    {/* <li className="nav-item active">
-                        <Link to="/create" className="nav-link">Add New Project</Link>
-                    </li>
-                    
-                    <li className="nav-item active">
-                        <Link to="/user" className="nav-link">Create User</Link>
-                    </li> */}
                 </ul>
             </nav>
 
