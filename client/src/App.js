@@ -11,7 +11,7 @@ import CreateUser from "./components/create-user.component";
 function TopBar(){
   return (
     <div className="top-bar">
-      <span className="title">Project Tracker App</span>
+      <span className="title">Make</span>
     </div>
   );
 }
