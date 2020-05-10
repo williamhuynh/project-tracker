@@ -3,12 +3,16 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 import ProjectProgress from "./project-progress.component";
+import ProjectModal from "./project-modal.component";
 import { ReactComponent as StarRegIcon } from '../svg/star-regular.svg';
 import { ReactComponent as EditRegIcon } from '../svg/edit-regular.svg';
 import { ReactComponent as ClockRegIcon } from '../svg/clock-regular.svg';
 
 
 function Project (props) {
+
+    const [showModal, setShowModal] = useState(false);
+
     return (        
         <div className="project-wrapper">
             <div className="project-profile">
@@ -24,7 +28,8 @@ function Project (props) {
                 <ProjectEdit />
             </div>
             <div>
-                <button className="updatebtn">Update</button>
+                <button className="updatebtn" onClick={()=> setShowModal(!showModal)}>Update</button>
+                    <ProjectModal show = {showModal} close={()=> setShowModal(false)} project={props.project}></ ProjectModal>
                 <button className="deletebtn" onClick={() => deleteProject(props.project._id)}>Delete</button>
             </div>
             
