@@ -12,12 +12,14 @@ router.route('/add').post((req, res) => {
     const name = req.body.name;
     const description = req.body.description;
     const category = req.body.category;
+    const progresspercent = req.body.progresspercent;
 
     const newProject = new Project({
         username,
         name,
         description,
         category,
+        progresspercent,
     });
 
     newProject.save()
@@ -44,9 +46,10 @@ router.route('/:id').post((req,res) => {
             project.name = req.body.name;
             project.description = req.body.description;
             project.category = req.body.category;
+            project.progresspercent = req.body.progresspercent;
             
             project.save()
-                .then(() => res.json("Project updated"))
+                .then(response => res.json(response))
                 .catch(err => res.status(400).json('Error: ' + err));
         })
         .catch(err => res.status(400).json('Error: ' + err));

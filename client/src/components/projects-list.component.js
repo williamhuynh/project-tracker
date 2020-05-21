@@ -17,14 +17,14 @@ function Project (props) {
         <div className="project-wrapper">
             <div className="project-profile">
                 <div className="project-picture">
-                    <span className="project-icon"></span>
+                    <span onClick={()=> setShowModal(!showModal)} className="project-icon"></span>
                 </div>
                 <div className="project-title">
                     {props.project.name}
                 </div>
             </div>
             <div className="project-progress">
-                <ProjectProgress />
+                <ProjectProgress project={props.project}/>
                 <ProjectEdit />
             </div>
             <div>
@@ -69,6 +69,9 @@ function projectList (projects) {
          <Project project={currentproject} key={currentproject.id}/>
     ))
 };
+
+
+//Main render
 
 export default function ProjectsList () {
     

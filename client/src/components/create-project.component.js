@@ -9,6 +9,8 @@ export default class CreateProject extends Component {
         this.onChangeName = this.onChangeName.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onChangeCategory = this.onChangeCategory.bind(this);
+        this.onChangeProgresspercent = this.onChangeProgresspercent.bind(this);
+
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
@@ -16,7 +18,8 @@ export default class CreateProject extends Component {
             name: '',
             description: '',
             category: '',
-            users: []
+            users: [],
+            progresspercent: '',
         }
     }
 
@@ -56,6 +59,13 @@ export default class CreateProject extends Component {
         });
     }
 
+    onChangeProgresspercent(e) {
+        this.setState({
+            progresspercent: e.target.value
+        });
+    }
+
+
     onSubmit(e) {
         e.preventDefault();
 
@@ -64,6 +74,7 @@ export default class CreateProject extends Component {
             name: this.state.name,
             description: this.state.description,
             category: this.state.category,
+            progresspercent: this.state.progresspercent
         }
 
         console.log(project);
@@ -104,6 +115,12 @@ export default class CreateProject extends Component {
                         <label>Category</label>
                         <input type="text" required className="form-control" value={this.state.category} onChange={this.onChangeCategory} />
                     </div>
+
+                    <div className="form-group">
+                        <label>progresspercent</label>
+                        <input type="text" required className="form-control" value={this.state.progresspercent} onChange={this.onChangeProgresspercent} />
+                    </div>
+
                     <div className="form-group">
                         <input type="submit" value="Add New Project" className="btn btn-primary" />
                     </div>

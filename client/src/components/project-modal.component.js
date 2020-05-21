@@ -98,7 +98,7 @@ export default function ProjectModal (props) {
                         <div className="modal-subtitle">
                             {props.project.category}
                         </div>
-                        <ProjectProgress />
+                        <ProjectProgress project={props.project} />
                     </div>
                 </div>
                 <div className="modal-main-grid">
@@ -126,12 +126,6 @@ export default function ProjectModal (props) {
                     </div>
 
                     <div className="modal-project-images"></div>
-                </div>
-
-                <div className="footer">
-                    <button id="modal-close-button" onClick={props.close}>
-                    Close
-                    </button>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as UserIcon } from '../svg/user-solid.svg';
 import { ReactComponent as PlusIcon } from '../svg/plus-solid.svg';
@@ -47,51 +47,52 @@ function ProjectList(props){
     
     return (
         <li className="nav-item">
-            <a href={props.id} className="icon-button">
+            <a href={"/edit/" + props.id} className="icon-button">
                 {props.icon}
             </a>
         </li>
     );
 }
 
-export default class Navbar extends Component {
+export default function Navbar () {
 
-    constructor(props){
-        super(props);
 
-        this.state = {projects: []};
-    };
-
-    componentDidMount() {
-        axios.get('/projects/')
-            .then(response => {
-                this.setState({projects: response.data})
-            })
-    }
+    // componentDidMount() {
+    //     axios.get('/projects/')
+    //         .then(response => {
+    //             this.setState({projects: response.data})
+    //         })
+    // }
     
 
-    ProjectItem(){
-        return this.state.projects.map(p => (
+    const [projects, setProjects] = useState([]);
+    
+    useEffect(() => {
+        axios.get('/projects/')
+        .then(response => {
+            setProjects(response.data);
+        });
+    });
+
+    function ProjectItem(){
+        return projects.map(p => (
             <ProjectList key={p.id} id={p._id} icon={p.name} />
         ))
     
     }
     
+    return (
+        <nav className="navbar">
+            <ul className="navbar-nav">
+                <NavItem link="/" icon={<HomeIcon />}></NavItem>
+                { ProjectItem() }   
+                <NavItem link="create" icon={<PlusIcon />}></NavItem>
+                <NavItem link="#" icon={<UserIcon />}>
+                    <DropDownMenu />
+                </NavItem>
+            </ul>
+        </nav>
 
-    render() {
+    )
 
-        return (
-            <nav className="navbar">
-                <ul className="navbar-nav">
-                    <NavItem link="/" icon={<HomeIcon />}></NavItem>
-                    { this.ProjectItem() }   
-                    <NavItem link="create" icon={<PlusIcon />}></NavItem>
-                    <NavItem link="#" icon={<UserIcon />}>
-                        <DropDownMenu />
-                    </NavItem>
-                </ul>
-            </nav>
-
-        )
-    }
 }

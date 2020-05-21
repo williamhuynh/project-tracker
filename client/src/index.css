@@ -184,6 +184,7 @@ code {
   padding: 0;
   margin: 0;
   outline:none;
+  cursor: pointer;
   transition: background var(--speed);
 }
 
@@ -247,6 +248,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
 }
 
@@ -261,17 +263,62 @@ code {
 .updatebtn {
   margin-left: 4rem;
   width: 5rem;
-  background: #DAECF1;
+  background: #2B7A9C;
   border-radius: 0.25rem;
-  /* border-style:none; */
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  outline:none;
 }
+
+.updatebtn:active {
+  background-color: var(--accent2);
+}
+
 
 .deletebtn {
   margin-left: 0.5rem;
   width: 5rem;
-  background: #DAECF1;
+  background: #E7E7E7;
   border-radius: 0.25rem;
-  /* border-style:none; */
+  border: none;
+  color: #646464;
+  cursor: pointer;
+  outline:none;
+}
+
+
+.deletebtn:active {
+  background-color: var(--accent2);
+}
+
+.progess-save-change-btn {
+  /* margin-left: 0.5rem; */
+  margin-right: 1rem;
+  width: 5rem;
+  height: 2rem;
+  /* font-size: 0.75rem; */
+  border-radius: 0.25rem;
+  font-weight: bold;
+  border: none;
+  outline:none;
+  transition: color var(--speed);
+}
+
+.progess-save-change-btn:active {
+  background-color: var(--accent2);
+}
+
+.progess-save-change-btn-unclicked {
+  background-color:#2B7A9C;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.progess-save-change-btn-clicked {
+  background-color: rgb(187, 240, 194);
+  color: var(--text-color-dark);
+  cursor: default;
 }
 
 
@@ -296,7 +343,20 @@ code {
     width: 70%;
     height: 80%;
     margin: 0 auto;
-    /* padding: 2rem; */
+    animation-name: modal-fade-in;
+    animation-duration: var(--speed);
+    /* animation-timing-function: ease-out; */
+}
+
+@keyframes modal-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-25%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
 }
 
 .modal-header{
@@ -470,7 +530,8 @@ code {
   height: 3rem;
   margin: 0;
   background-color: var(--accent2);
-
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
   align-items: center;
   justify-content: flex-end;
 }
@@ -490,3 +551,4 @@ code {
   width: 2rem;
   height: 2rem;
 }
+
