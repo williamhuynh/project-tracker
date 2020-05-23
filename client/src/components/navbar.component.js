@@ -72,7 +72,7 @@ export default function Navbar () {
         .then(response => {
             setProjects(response.data);
         });
-    });
+    },[]);
 
     function ProjectItem(){
         return projects.map(p => (

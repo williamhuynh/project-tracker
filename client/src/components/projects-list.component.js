@@ -81,8 +81,9 @@ export default function ProjectsList () {
         axios.get('/projects/')
         .then(response => {
             setProjects(response.data);
+            console.log(response.data);
         });
-    });
+    },[]);
    
     return (
         <div>
