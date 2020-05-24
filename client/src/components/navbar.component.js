@@ -4,7 +4,8 @@ import { ReactComponent as UserIcon } from '../svg/user-solid.svg';
 import { ReactComponent as PlusIcon } from '../svg/plus-solid.svg';
 import { ReactComponent as HomeIcon } from '../svg/home-solid.svg';
 import axios from 'axios';
-
+import {useAuth0} from "../react-auth0-spa";
+import NewProjectDialog from "./new-project-dialog.component";
 
 
 function NavItem(props) {
@@ -57,15 +58,20 @@ function ProjectList(props){
 export default function Navbar () {
 
 
-    // componentDidMount() {
-    //     axios.get('/projects/')
-    //         .then(response => {
-    //             this.setState({projects: response.data})
-    //         })
-    // }
-    
-
+    //states for authentication
+    const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
     const [projects, setProjects] = useState([]);
+    //
+    //Initiate states for the new project dialog box
+    const [dialogOpen, setDialogOpen] = useState(false);
+
+    const handleDialogClickOpen = () => {
+        setDialogOpen(true);
+    };
+    const handleDialogClose = () => {
+        setDialogOpen(false);
+    };
+    //
     
     useEffect(() => {
         axios.get('/projects/')
@@ -86,10 +92,30 @@ export default function Navbar () {
             <ul className="navbar-nav">
                 <NavItem link="/" icon={<HomeIcon />}></NavItem>
                 { ProjectItem() }   
-                <NavItem link="create" icon={<PlusIcon />}></NavItem>
-                <NavItem link="#" icon={<UserIcon />}>
-                    <DropDownMenu />
-                </NavItem>
+                {/* <NavItem link="create" icon={<PlusIcon />}></NavItem> */}
+
+                <li className="nav-item">
+                    <button id="project-modal" className="icon-button" onClick ={handleDialogClickOpen}>
+                        <PlusIcon />
+                    </button>
+                    <NewProjectDialog dialogOpen={dialogOpen} setDialogOpen = {setDialogOpen} />
+                </li>
+
+                {!isAuthenticated && (
+                    
+                    <li className="nav-item">
+                    <button href="#" className="icon-button" onClick={() => loginWithRedirect({})}>
+                        Log in
+                    </button>
+                    </li>
+                    // <NavItem link="#" icon={<UserIcon />}></NavItem>
+                )}
+
+                {isAuthenticated && (
+                    <NavItem link="#" icon={<UserIcon />}>
+                        <DropDownMenu />
+                    </NavItem>
+                )}
             </ul>
         </nav>
 

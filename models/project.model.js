@@ -7,7 +7,8 @@ const projectSchema = new Schema({
     name: {type: String, required: true },
     description: {type: String, required: true},
     category: {type: String, required: true},
-    progresspercent: {type: Number}
+    progresspercent: {type: Number},
+    imagename: {type: String}
 }, {
     timestamps: true,
 });

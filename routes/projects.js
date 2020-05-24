@@ -13,6 +13,7 @@ router.route('/add').post((req, res) => {
     const description = req.body.description;
     const category = req.body.category;
     const progresspercent = req.body.progresspercent;
+    const imagename = req.body.image;
 
     const newProject = new Project({
         username,
@@ -20,10 +21,11 @@ router.route('/add').post((req, res) => {
         description,
         category,
         progresspercent,
+        imagename,
     });
 
     newProject.save()
-        .then(() => res.json('Project added!'))
+        .then(response => res.json(response + 'Project added!'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 

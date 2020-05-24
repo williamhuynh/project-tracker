@@ -242,7 +242,7 @@ code {
   --button-size: 7rem;
   width: var(--button-size);
   height: var(--button-size);
-  border-radius: 14px;
+  border-radius: 1rem;
   box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
   background: #C1FFBF;
   display: flex;
@@ -552,3 +552,120 @@ code {
   height: 2rem;
 }
 
+.newproject-content {
+  height: 450px;
+  /* height: 100%; */
+}
+
+.newproject-grid {
+  display: grid;
+  width: auto;
+  height: 100%;
+  grid-template-columns: 50% 50%;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  /* margin: 2rem 4rem  0 4rem; */
+  justify-content: space-between;
+  align-content: space-around;
+  justify-items: center;
+  /* padding-right: 4rem; */
+  grid-template-areas:
+    "left right"
+}
+
+.newproject-left {
+  grid-area: left;
+  /* background-color: #E7E7E7; */
+  /* border-radius: 0.5rem; */
+  /* color: #646464; */
+  padding-right: 2rem;
+}
+.newproject-right {
+  grid-area: right;
+  /* align-self: center; */
+  /* justify-self: center; */
+  /* background-color: #E7E7E7; */
+  /* border-radius: 0.5rem; */
+  /* color: #646464; */
+  /* padding: 1rem; */
+}
+
+.newproject-right-content {
+  display: grid;
+  width: auto;
+  height: 100%;
+  justify-items: center;
+  align-items: center;
+  align-content: space-around;
+  justify-content: space-between;
+  grid-template-columns: 40% 40%;
+  grid-template-rows: 20% 20% 20% 20%; 
+  grid-template-areas:
+    "preview option1"
+    "preview option2"
+    "preview option3"
+    "preview option4";
+  /* row-gap: 0.5rem; */
+
+}
+
+.newproject-picture-icon {
+  grid-area: preview;
+  width: 10rem;
+  height: 10rem;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.newproject-picture-icon img{
+  border-radius: 2rem;
+}
+
+.newproject-picture-default {
+  color: #FFFFFF;
+  background-color: rgb(218, 218, 218);
+}
+
+.newproject-option-select {
+  --size: 2rem;
+  width: var(--size);
+  height: var(--size);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.newproject-option1-gridarea {
+  grid-area: option1;
+}
+
+.newproject-option2-gridarea {
+  grid-area: option2;
+}
+
+.newproject-option3-gridarea {
+  grid-area: option3;
+}
+
+.newproject-option4-gridarea {
+  grid-area: option4;
+}
+
+.newproject-option1-icon {
+  color: #FFFFFF;
+  background-color: rgb(155, 240, 159);
+}
+
+.newproject-option2-icon {
+  color: #FFFFFF;
+  background-color: rgb(241, 207, 132);
+}
+
+.newproject-option3-icon {
+  color: #FFFFFF;
+  background-color: rgb(233, 164, 216);
+}
+
+.newproject-imageupload-btn {
+  /* width: 4rem; */
+  font-size: 0.75rem;
+}

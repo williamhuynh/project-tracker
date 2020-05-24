@@ -1,12 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+import { useAuth0 } from "./react-auth0-spa";
+
 
 import Navbar from "./components/navbar.component";
 import ProjectsList from "./components/projects-list.component";
 import EditProject from "./components/edit-project.component";
 import CreateProject from "./components/create-project.component";
 import CreateUser from "./components/create-user.component";
+
+import { StylesProvider } from '@material-ui/core/styles';
+
 
 function TopBar(){
   return (
@@ -18,7 +23,18 @@ function TopBar(){
 
 
 function App() {
+
+  const { loading } = useAuth0();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
+
+    <StylesProvider injectFirst>
+    {/* Your component tree.
+        Styled components can override Material-UI's styles. */}
     <Router>
       <div className="container">
         <Navbar />
@@ -31,6 +47,8 @@ function App() {
         </div>
       </div>
     </Router>
+    </StylesProvider>
+
   );
 }
 

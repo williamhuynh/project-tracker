@@ -7,6 +7,7 @@ import ProjectModal from "./project-modal.component";
 import { ReactComponent as StarRegIcon } from '../svg/star-regular.svg';
 import { ReactComponent as EditRegIcon } from '../svg/edit-regular.svg';
 import { ReactComponent as ClockRegIcon } from '../svg/clock-regular.svg';
+import { PromiseProvider } from 'mongoose';
 
 
 function Project (props) {
@@ -30,7 +31,7 @@ function Project (props) {
             <div>
                 <button className="updatebtn" onClick={()=> setShowModal(!showModal)}>Update</button>
                     <ProjectModal show = {showModal} close={()=> setShowModal(false)} project={props.project}></ ProjectModal>
-                <button className="deletebtn" onClick={() => deleteProject(props.project._id)}>Delete</button>
+                <button className="deletebtn" onClick={() => deleteProject(props.project._id) + props.setProjects(props.projects.filter(el => el._id !== props.project._id))}>Delete</button>
             </div>
             
         </div>
@@ -64,9 +65,9 @@ function ProjectEdit () {
 }
 
 
-function projectList (projects) {
-    return projects.map(currentproject => (
-         <Project project={currentproject} key={currentproject.id}/>
+function ProjectList (props) {
+    return props.projects.map(currentproject => (
+         <Project project={currentproject} key={currentproject.id} setProjects = {props.setProjects} projects = {props.projects} />
     ))
 };
 
@@ -88,7 +89,7 @@ export default function ProjectsList () {
     return (
         <div>
             <span className="project-home">Project Home</span>
-            {projectList(projects)}
+            <ProjectList projects={projects} setProjects={setProjects} projects ={projects} />
         </div>
     );
 }
