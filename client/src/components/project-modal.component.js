@@ -20,6 +20,10 @@ export default function ProjectModal (props) {
     //setting state to capture the text in the update box
     const [update, setUpdate] = useState("");
     const [lastUpdate, setLastUpdate] = useState("");
+    const [description, setDescription] = useState("");
+
+    const [clickedDescription, setClickedDescription] = useState(false);
+    const descriptionRef = useRef();
 
     //setup states for checking if we have clicked the new update box
     const [newUpdate, setNewUpdate] = useState(false);
@@ -117,10 +121,9 @@ export default function ProjectModal (props) {
                     </div>
                     <div className="modal-description">
                         <div className="modal-description-title">Description and Notes</div>
-                        <textarea className="modal-description-content">
-- This is coding project to develop a web-app. Also trying to learn JS/React framework
-- Source code is on Git, and is stored locally on the WSL Ubuntu distribution
-- This was spawned as part of Coding with Friends SPring 2020 (link)
+                        <textarea className="modal-description-content" value={props.project.description}>
+                            
+
                         </textarea>
                         <button className="modal-description-savebtn">Save</button>
                     </div>
