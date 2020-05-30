@@ -12,10 +12,10 @@ As part of CWF Spring 2020, I decided to try my hand at coding and built an weba
 
 |          Screenshots                   |
 | -------------------------------------- |
-| (./screenshots/homepage.jpg)           |
-| (./screenshots/projectmodal.jpg)       |
-| (./screenshots/newproject.jpg)         |
-| (./screenshots/authentication.jpg)     |
+| ![1](./screenshots/homepage.jpg)           |
+| ![2](./screenshots/projectmodal.jpg)       |
+| ![3](./screenshots/newproject.jpg)         |
+| ![4](./screenshots/authentication.jpg)     |
 
 
 ## Inspiration
