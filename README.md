@@ -3,7 +3,7 @@
 Created by William Huynh
 https://github.com/williamhuynh
 
-Source code: https://github.com/williamhuynh/
+Source code: https://github.com/williamhuynh/project-tracker
 heroku deployment: https://limitless-escarpment-51341.herokuapp.com/
 
 ## Summary
